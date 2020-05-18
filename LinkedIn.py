@@ -39,14 +39,24 @@ browser.get(fullLink)
 visitedProfiles = []
 profilesQueued  = []
 
+time.sleep(3)
 def getNewProfileIDs(soup, profilesQueued):
+    print("Started function")
     profilesID=[]
+
     pav=soup.find('section',{"class": "pv-profile-section pv-browsemap-section profile-section artdeco-container-card ember-view"})
-    all_links = pav.findAll("a", {"class":"pv-browsemap-section__member-container mt4 pv-browsemap-section__member-container-line ember-view"})
+    print("Here's the first scrape")
+    print(pav)
+
+    all_links = pav.findAll("a", {"pv-browsemap-section__member ember-view"})
+    print("Here's the second scrape")
+    print(all_links)
+
     for link in all_links:
         userID = link.get("href")
         if((userID not in profilesQueued) and (userID not in visitedProfiles)):
             profilesID.append(userID)
+            print(userID)
     return profilesID 
 
 getNewProfileIDs(BeautifulSoup(browser.page_source, 'html.parser'), profilesQueued)
