@@ -29,13 +29,16 @@ elementID.send_keys(password)
 
 elementID.submit()
 
-# Visit your own profile
+# 1) Visit your own profile
 time.sleep(35)
 visitingProfileID = '/in/chaba-josa/'
 fullLink = "https://www.linkedin.com" + visitingProfileID
 browser.get(fullLink)
 
-# Connect with suggestions 
+
+# -----------------------------------------------------------------------------------------
+
+# 2) Connect with profile suggestions 
 visitedProfiles = []
 profilesQueued  = []
 
@@ -61,5 +64,32 @@ def getNewProfileIDs(soup, profilesQueued):
 
 getNewProfileIDs(BeautifulSoup(browser.page_source, 'html.parser'), profilesQueued)
 
+# -----------------------------------------------------------------------------------------
 
-# https://www.youtube.com/watch?v=d6EQnjj-Bx0
+# 3) Query Positions (Not Completed)
+# search-global-typeahead__input always-show-placeholder
+
+# parameterArray  = []
+# def searchJobs (JobSearchArray, usLocation):
+#     time.sleep(3)
+#     soup = BeautifulSoup(browser.page_source, 'html.parser')
+
+#     for i in JobSearchArray:
+#         currentSearch = JobSearchArray[JobSearchArray.index(i)].split()
+#         print(currentSearch)
+#         print(f"https://www.linkedin.com/jobs/search/?f_LF=f_AL&geoId=101318387&keywords={currentSearch[0]}%20{currentSearch[1]}&location={usLocation}%2C%20United%20States")
+#         parameterArray.append(f"https://www.linkedin.com/jobs/search/?f_LF=f_AL&geoId=101318387&keywords={currentSearch[0]}%20{currentSearch[1]}&location={usLocation}%2C%20United%20States")
+
+#         time.sleep(3)
+#         for i in parameterArray:
+#             browser.get(parameterArray[parameterArray.index(i)])
+
+
+# searchJobs(["FrontEnd Developer"],"Florida")
+
+# Researched from
+# https://www.youtube.com/watch?v=d6EQnjj-Bx0 For DMs
+# https://youtu.be/_GcEkRzjjGI For John Fisher Bot
+# https://www.youtube.com/watch?v=j37IGnnImv4 #For Job Applications and overall navigation.
+# https://github.com/fdupuis659/LinkedIn-Automatic-Job-Applier
+
